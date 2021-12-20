@@ -8,17 +8,29 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
   //Properties
-  firstName = 'John';
-  lastName = 'Doe';
-  age = 30;
-  //methodes
-  address = {
-    street: '50 main st',
-    city: 'Boston',
-    state: 'mass',
-  };
+  firstName: string;
+  lastName: string;
+  age: number;
+  address;
+  foo: any; //can be cast to anything
+  hasKids: boolean;
+  numberArray: number[];
+  mixedArray: any; //can put anything inside(string,number,boolean)
+
+  //Methodes
   constructor() {
-    // this.sayHello();
+    this.firstName = 'John';
+    this.lastName = 'Doe';
+    this.age = 30;
+    this.address = {
+      street: '50 Main st',
+      city: 'Boston',
+      state: 'MASS',
+    };
+
+    this.foo = true;
+    this.hasKids = true;
+    this.numberArray = [1, 2, 3];
   }
 
   sayHello() {
