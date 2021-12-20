@@ -8,10 +8,15 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
   //Properties
-  firstName = 'john';
+  firstName = 'John';
   lastName = 'Doe';
   age = 30;
   //methodes
+  address = {
+    street: '50 main st',
+    city: 'Boston',
+    state: 'mass',
+  };
   constructor() {
     // this.sayHello();
   }
@@ -22,5 +27,9 @@ export class UserComponent {
 
   hasBirthDay() {
     this.age += 1;
+  }
+
+  showAge() {
+    return this.age + 2;
   }
 }
