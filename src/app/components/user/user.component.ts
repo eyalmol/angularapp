@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { User } from '../../models/User';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -8,40 +8,19 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
   //Properties
-  firstName: string;
-  lastName: string;
-  age: number;
-  address;
-  foo: any; //can be cast to anything
-  hasKids: boolean;
-  numberArray: number[];
-  mixedArray: any; //can put anything inside(string,number,boolean)
+  user: User;
 
   //Methodes
   constructor() {
-    this.firstName = 'John';
-    this.lastName = 'Doe';
-    this.age = 30;
-    this.address = {
-      street: '50 Main st',
-      city: 'Boston',
-      state: 'MASS',
+    this.user = {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30,
+      address: {
+        street: '50 Main st',
+        city: 'Boston',
+        state: 'MA',
+      },
     };
-
-    this.foo = true;
-    this.hasKids = true;
-    this.numberArray = [1, 2, 3];
-  }
-
-  sayHello() {
-    console.log(`hello ${this.firstName}`);
-  }
-
-  hasBirthDay() {
-    this.age += 1;
-  }
-
-  showAge() {
-    return this.age + 2;
   }
 }
