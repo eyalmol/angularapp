@@ -26,6 +26,7 @@ export class UsersComponent implements OnInit {
         },
         isActive: true,
         registered: new Date('01/02/2018'),
+        hide: true,
       },
       {
         firstName: 'Kevin',
@@ -38,6 +39,7 @@ export class UsersComponent implements OnInit {
         },
         isActive: true,
         registered: new Date('13/11/2017'),
+        hide: true,
       },
       {
         firstName: 'karen',
@@ -50,17 +52,17 @@ export class UsersComponent implements OnInit {
         },
         isActive: true,
         registered: new Date('11/02/2016'),
+        hide: true,
       },
     ];
     this.loaded = true;
-
-    this.addUser({
-      firstName: 'David',
-      lastName: 'Jackson',
-    });
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  toggleHide(user: User) {
+    user.hide = !user.hide;
   }
 }

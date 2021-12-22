@@ -7,8 +7,9 @@ export interface User {
     city?: string;
     state?: string;
   };
-  
+
   isActive?: boolean;
-  
+
   registered?: any;
+  hide?: boolean;
 }
