@@ -9,6 +9,7 @@ export class UsersComponent implements OnInit {
   users: User[] | any;
   showExtended: boolean = true;
   loaded: boolean = false;
+  enableAdd: boolean = true;
   constructor() {}
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class UsersComponent implements OnInit {
           city: 'Boston',
           state: 'MA',
         },
+        image: 'http://lorempixel.com/600/600/people/3',
       },
       {
         firstName: 'Kevin',
@@ -32,6 +34,7 @@ export class UsersComponent implements OnInit {
           city: 'Lynn',
           state: 'MA',
         },
+        image: 'http://lorempixel.com/600/600/people/2',
       },
       {
         firstName: 'karen',
@@ -42,6 +45,7 @@ export class UsersComponent implements OnInit {
           city: 'Miami',
           state: 'Florida',
         },
+        image: 'http://lorempixel.com/600/600/people/1',
       },
     ];
     this.loaded = true;
