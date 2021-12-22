@@ -27,6 +27,8 @@ export class UsersComponent implements OnInit {
         },
         image: 'http://lorempixel.com/600/600/people/3',
         isActive: true,
+        balance: 100,
+        registered: new Date('01/02/2018'),
       },
       {
         firstName: 'Kevin',
@@ -39,6 +41,8 @@ export class UsersComponent implements OnInit {
         },
         image: 'http://lorempixel.com/600/600/people/2',
         isActive: true,
+        balance: 200,
+        registered: new Date('13/11/2017'),
       },
       {
         firstName: 'karen',
@@ -51,6 +55,8 @@ export class UsersComponent implements OnInit {
         },
         image: 'http://lorempixel.com/600/600/people/1',
         isActive: true,
+        balance: 50,
+        registered: new Date('11/02/2016'),
       },
     ];
     this.loaded = true;
