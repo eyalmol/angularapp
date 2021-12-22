@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
   loaded: boolean = false;
   enableAdd: boolean = true;
   currentClasses = {};
+  currentStyle: {} | any;
   constructor() {}
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class UsersComponent implements OnInit {
           state: 'MA',
         },
         image: 'http://lorempixel.com/600/600/people/2',
-        isActive: false,
+        isActive: true,
       },
       {
         firstName: 'karen',
@@ -59,6 +60,7 @@ export class UsersComponent implements OnInit {
       lastName: 'Jackson',
     });
     this.setCurrentClasses();
+    this.setCurrentStyles();
   }
 
   addUser(user: User) {
@@ -69,6 +71,13 @@ export class UsersComponent implements OnInit {
     this.currentClasses = {
       'btn-success': this.enableAdd,
       'big-text': this.showExtended,
+    };
+  }
+
+  setCurrentStyles() {
+    this.currentStyle = {
+      'padding-top': this.showExtended ? '0' : '40px',
+      'font-size': this.showExtended ? '' : '40px',
     };
   }
 }
