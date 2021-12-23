@@ -13,7 +13,6 @@
         name="firstName"
       />
     </div>
-    {{ user.firstName }}
     <div class="form-group">
       <label>Last Name</label>
       <input
@@ -26,45 +25,15 @@
     <div class="form-group">
       <label>Age</label>
       <input
-        type="number"
-        [(ngModel)]="user.age"
-        class="form-control"
-        name="age"
-      />
-    </div>
-    <div class="form-group">
-      <label>Street Adrress</label>
-      <input
         type="text"
+        [(ngModel)]="user.email"
         class="form-control"
-        *ngIf="user.address"
-        [(ngModel)]="user.address.street"
-        name="street"
+        name="email"
       />
     </div>
-    <div class="form-group">
-      <label>City</label>
-      <input
-        type="text"
-        class="form-control"
-        *ngIf="user.address"
-        [(ngModel)]="user.address.city"
-        name="city"
-      />
-    </div>
-    <div class="form-group">
-      <label>States</label>
-      <input
-        type="text"
-        class="form-control"
-        *ngIf="user.address"
-        [(ngModel)]="user.address.state"
-        name="state"
-      />
-    </div>
+
     <button
       [disabled]="user.firstName == '' || user.lastName == ''"
-      (click)="addUser()"
       class="btn btn-block mb-3"
     >
       Add New User
@@ -85,17 +54,13 @@
   >
     <h3>
       {{ user.firstName }} {{ user.lastName }}
-      <small *ngIf="user.age && user.address"
+      <small
         ><button (click)="user.hide = !user.hide" class="btn btn-dark btn-sm">
           <i [ngClass]="user.hide ? 'fa fa-plus' : 'fa fa-minus'"></i></button
       ></small>
     </h3>
-    <ul class="list-group" *ngIf="!user.hide && user.age && user.address">
-      <li class="list-group-item">Age: {{ user.age }}</li>
-      <li class="list_group_item">
-        Address: {{ user.address.street }},{{ user.address.city }},
-        {{ user.address.state }}
-      </li>
+    <ul class="list-group" *ngIf="!user.hide">
+      <li class="list-group-item">Email: {{ user.email }}</li>
       <li class="list-group-item">Joined:{{ user.registered | date }}</li>
     </ul>
   </li>
