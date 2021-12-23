@@ -1,15 +1,82 @@
-<h2>Users</h2>
+<button (click)="showUserForm = !showUserForm" class="btn btn-dark mb-3">
+  Add User
+</button>
+<div class="card card-body mb-3" *ngIf="showUserForm">
+  <h2>Add User</h2>
+  <form (submit)="onSubmit($event)">
+    <div class="form-group">
+      <label>First Name</label>
+      <input
+        type="text"
+        [(ngModel)]="user.firstName"
+        class="form-control"
+        name="firstName"
+      />
+    </div>
+    {{ user.firstName }}
+    <div class="form-group">
+      <label>Last Name</label>
+      <input
+        type="text"
+        [(ngModel)]="user.lastName"
+        class="form-control"
+        name="lastName"
+      />
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input
+        type="number"
+        [(ngModel)]="user.age"
+        class="form-control"
+        name="age"
+      />
+    </div>
+    <div class="form-group">
+      <label>Street Adrress</label>
+      <input
+        type="text"
+        class="form-control"
+        *ngIf="user.address"
+        [(ngModel)]="user.address.street"
+        name="street"
+      />
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input
+        type="text"
+        class="form-control"
+        *ngIf="user.address"
+        [(ngModel)]="user.address.city"
+        name="city"
+      />
+    </div>
+    <div class="form-group">
+      <label>States</label>
+      <input
+        type="text"
+        class="form-control"
+        *ngIf="user.address"
+        [(ngModel)]="user.address.state"
+        name="state"
+      />
+    </div>
+    <button
+      [disabled]="user.firstName == '' || user.lastName == ''"
+      (click)="addUser()"
+      class="btn btn-block mb-3"
+    >
+      Add New User
+    </button>
+  </form>
+</div>
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
-<button
-  [disabled]="!enableAdd"
-  (click)="addUser({ firstName: 'Mary', lastName: 'Jackson', isActive: true })"
-  class="btn btn-block mb-3"
->
-  Add New User
-</button>
+
 <ul class="list-unstyled" *ngIf="loaded && users.length > 0">
   <li
     class="card card-body mb-2"

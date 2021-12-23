@@ -3,7 +3,7 @@ export interface User {
   lastName: string;
   age?: number;
   address?: {
-    street?: string;
+    street: string;
     city?: string;
     state?: string;
   };
