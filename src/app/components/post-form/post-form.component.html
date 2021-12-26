@@ -1,0 +1,46 @@
+<h2>Add Post</h2>
+<div class="card card-body mb-3">
+  <!-- set the avatar img, define his properties in the post-form CSS file -->
+  <img src="assets/images/avatar.png" alt="Avatar" class="avatar" />
+  <p>Share your thoughts</p>
+  <form #postForm="ngForm">
+    <div class="form-group">
+      <label>Title</label>
+      <!-- we want to be able to empty the form when the user submit/cancel his request
+    thats why we used the ngModel -->
+      <input
+        type="text"
+        [(ngModel)]="tempPost.title"
+        class="form-control"
+        name="title"
+        #title
+      />
+    </div>
+    <div class="form-group">
+      <label>Body </label>
+      <textarea
+        type="text"
+        [(ngModel)]="tempPost.newsText"
+        class="form-control"
+        name="newsText"
+        #newsText
+      ></textarea>
+    </div>
+    <!-- define in which senarios the addPost btn should be active -->
+    <button
+      [disabled]="tempPost.title == '' || tempPost.newsText == ''"
+      (click)="addPost(title.value, newsText.value, postForm)"
+      class="btn btn-dark btn-block"
+    >
+      Add Post
+    </button>
+    <!-- define in which senarios the cancel btn should br active -->
+    <button
+      [disabled]="tempPost.title == '' || tempPost.newsText == ''"
+      (click)="cancelPost()"
+      class="btn btn-danger btn-block"
+    >
+      Cancel
+    </button>
+  </form>
+</div>

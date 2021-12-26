@@ -1,5 +1,6 @@
+// defining post model
 export interface Post {
-  id: number;
+  //   id: number;
   title: string;
   newsText: string;
 }
