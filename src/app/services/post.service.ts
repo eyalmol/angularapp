@@ -24,4 +24,8 @@ export class PostService {
   savePost(post: Post): Observable<Post> {
     return this.http.post<Post>(this.postUrl, post);
   }
+  updateLikes(id: string) {
+    let postUrl = this.postUrl + '/' + id + '/like';
+    return this.http.put(postUrl, '');
+  }
 }

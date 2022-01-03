@@ -20,6 +20,7 @@ export class PostFormComponent implements OnInit {
   tempPost: Post = {
     title: '',
     newsText: '',
+    likes: 0,
   };
 
   @Output() newPost: EventEmitter<Post> = new EventEmitter();

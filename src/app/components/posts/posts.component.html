@@ -2,13 +2,30 @@
 <!-- we recieve the new post from the post-form using the event emitter for setting
 an event between seperate components(in this case 1 is the post-form and the 2 is
 post component which his job is to present the posts) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <h2>Posts</h2>
-<div class="card" *ngFor="let post of posts">
+<div
+  class="card"
+  *ngFor="let post of posts; let i = index"
+  [attr.data-index]="i"
+>
   <div class="card-body">
     <img src="assets/images/avatar.png" alt="Avatar" class="avatar" />
     <h4>seemo cohen</h4>
     <p>cyberproof analyst</p>
     <h3>{{ post.title }}</h3>
     <p>{{ post.newsText }}</p>
+    <p [class]="'likes' + i">{{ post.likes }}</p>
+    <!-- <p>{{ post._id }}</p> -->
+    <button
+      class="btn btn-dark btn-sm"
+      *ngIf="post._id"
+      (click)="heartClick(post._id, $event, post.likes, i)"
+    >
+      <i class="fa fa-heart"></i>
+    </button>
   </div>
 </div>

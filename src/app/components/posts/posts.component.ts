@@ -24,4 +24,17 @@ export class PostsComponent implements OnInit {
   onNewPost(post: Post) {
     this.posts?.unshift(post);
   }
+
+  heartClick(id: string, event: Event, likes: any, index: number) {
+    console.log(likes);
+    likes += 1;
+    console.log(likes);
+    let score = document.querySelector(`.likes${+index}`);
+    // console.log(score?.textContent);
+    if (score?.textContent) score.textContent = likes;
+
+    this.postService.updateLikes(id).subscribe((post) => {
+      console.log(post);
+    });
+  }
 }
